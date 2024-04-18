@@ -10,24 +10,25 @@ import Root from './components/Root.jsx';
 import Home from './components/Home.jsx';
 import Login from './components/Login.jsx';
 import Register from './components/Register.jsx';
+import AuthaProvider from './providers/AuthaProvider.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root/>,
-    childrenL:[
+    element: <Root />,
+    childrenL: [
       {
-        path:'/',
-        element:<Home></Home>,
+        path: "/",
+        element: <Home></Home>,
       },
       {
-        path:'/login',
-        element:<Login></Login>,
+        path: '/login',
+        element: <Login></Login>,
 
       },
       {
-        path:'/register',
-        element:<Register></Register>,
+        path: '/register',
+        element: <Register></Register>,
       }
     ]
   },
@@ -35,6 +36,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthaProvider>
+      <RouterProvider router={router} />
+    </AuthaProvider>
   </React.StrictMode>,
 )
